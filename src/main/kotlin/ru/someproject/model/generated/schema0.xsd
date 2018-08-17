@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://asguf.mos.ru/rkis_gu/coordinate/v6/" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xds="http://uri.etsi.org/01903/v1.1.1#" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://asguf.mos.ru/rkis_gu/coordinate/v6/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="schema1.xsd" />
+  <xs:import schemaLocation="schema21.xsd" namespace="http://www.w3.org/2000/09/xmldsig#" />
+  <xs:element name="CoordinateMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="CoordinateDataMessage">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Service">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="RegNum" type="xs:unsignedInt" />
+                    <xs:element name="RegDate" type="xs:dateTime" />
+                    <xs:element name="ServiceNumber" type="xs:string" />
+                    <xs:element name="ServicePrice" nillable="true" />
+                    <xs:element name="PrepareTargetDate" nillable="true" />
+                    <xs:element name="OutputTargetDate" nillable="true" />
+                    <xs:element name="Responsible">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="LastName" type="xs:string" />
+                          <xs:element name="FirstName" type="xs:string" />
+                          <xs:element name="MiddleName" type="xs:string" />
+                          <xs:element name="JobTitle" type="xs:string" />
+                          <xs:element name="Phone" type="xs:string" />
+                          <xs:element name="Email" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Department">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Name" type="xs:string" />
+                          <xs:element name="Code" type="xs:unsignedShort" />
+                          <xs:element name="Inn" type="xs:unsignedLong" />
+                          <xs:element name="Ogrn" type="xs:unsignedLong" />
+                          <xs:element name="RegDate" type="xs:dateTime" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="CreatedByDepartment">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Name" type="xs:string" />
+                          <xs:element name="Code" type="xs:unsignedByte" />
+                          <xs:element name="Inn" nillable="true" />
+                          <xs:element name="Ogrn" nillable="true" />
+                          <xs:element name="RegDate" nillable="true" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="PrepareFactDate" nillable="true" />
+                    <xs:element name="OutputFactDate" nillable="true" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="SignService">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="ServiceTypeCode" type="xs:unsignedShort" />
+                    <xs:element name="Copies" type="xs:unsignedByte" />
+                    <xs:element name="Declarant">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="FullName" type="xs:string" />
+                          <xs:element name="Name" type="xs:string" />
+                          <xs:element name="Ogrn" type="xs:unsignedLong" />
+                          <xs:element name="OgrnDate" nillable="true" />
+                          <xs:element name="Inn" type="xs:unsignedLong" />
+                          <xs:element name="InnDate" nillable="true" />
+                          <xs:element name="Phone" type="xs:string" />
+                          <xs:element name="EMail" type="xs:string" />
+                        </xs:sequence>
+                        <xs:attribute name="Id" type="xs:string" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Trustee">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Gender" nillable="true" />
+                          <xs:element name="BirthDate" nillable="true" />
+                          <xs:element name="Snils" type="xs:string" />
+                          <xs:element name="CitizenshipType" nillable="true" />
+                          <xs:element name="OMSDate" nillable="true" />
+                          <xs:element name="OMSValidityPeriod" nillable="true" />
+                        </xs:sequence>
+                        <xs:attribute name="Id" type="xs:string" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="CustomAttributes">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element ref="ServiceProperties" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="Id" type="xs:string" use="required" />
+                  <xs:attribute ref="ns1:Id" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Documents" />
+              <xs:element ref="ds:Signature" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:attribute name="Id" type="xs:string" />
+</xs:schema>

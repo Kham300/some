@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xs:schema xmlns:tns="http://uri.etsi.org/01903/v1.1.1#" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://uri.etsi.org/01903/v1.1.1#" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="QualifyingProperties">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="SignedProperties">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SignedSignatureProperties">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="SigningTime" type="xs:string" />
+                    <xs:element name="SigningCertificate" type="xs:string" />
+                    <xs:element name="SignaturePolicyIdentifier" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="Target" type="xs:string" use="required" />
+            <xs:attribute name="Id" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="UnsignedProperties">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="UnsignedSignatureProperties">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="SignatureTimeStamp" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
